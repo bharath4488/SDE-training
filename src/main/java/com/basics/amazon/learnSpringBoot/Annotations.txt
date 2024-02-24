@@ -1,19 +1,26 @@
 @Entity - Indicates this class is an entity. An entity represents Table in RDB.
 @Table - Specifies the details of table, indices, etc.
-         If not provided, class-name is considered tablename.
+         If not provided, class-name is considered table-name.
 @Id - Indicates pk of entity.
 @Column - Maps property to the column name in db
 @GeneratedValue - Generated value of a property
                   (strategy = SEQUENCE/IDENTITY/AUTO/UUID/TABLE)
-@RestController -
-@RequestMapping -
-@Config -
-@Bean -
-@Controller -
-@Config -
-@ControllerAdvice -
-@Autowired -
-@(Post/Get/Put)Mapping - 
+@RestController - This annotation is used for making restful web services
+                  it is defined at the class level to handle the requests made by the client.
+@Controller - Use @Controller when you need to create a web application that renders HTML views,
+              and use @RestController when your application serves data over RESTful APIs.
+@Component - @Component is an annotation that allows Spring to detect our custom beans automatically
+@RequestMapping - map web requests onto specific handler classes and/or handler methods
+@Configuration - @Configuration classes declare beans through @Bean -annotated methods.
+                    Source of @Bean s.
+@Bean - indicate that a method instantiates, configures, and initializes a new object
+         to be managed by the Spring IoC container.
+@ControllerAdvice - @ControllerAdvice is used to create a global exception handler.
+@ExceptionHandler - this annotation is used inside @ControllerAdvice.
+                    Treat exceptions thrown during execution of handlers (controller operations)
+@Autowired - @Autowired is to inject the dependency into a bean
+@(Post/Get/Put)Mapping
+
 
 
 
