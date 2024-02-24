@@ -1,7 +1,7 @@
 package com.basics.amazon.learnLeetCode;
 
-import learnLeetCode.problems.array.AllAnagramsInSubArray;
-import learnLeetCode.problems.array.MaxSumArraySum;
+import com.basics.amazon.learnLeetCode.problems.array.AllAnagramsInSubArray;
+import com.basics.amazon.learnLeetCode.problems.array.MaxSumArraySum;
 
 import java.util.Arrays;
 import java.util.HashMap;

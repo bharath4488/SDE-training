@@ -1,0 +1,29 @@
+@Entity - Indicates this class is an entity. An entity represents Table in RDB.
+@Table - Specifies the details of table, indices, etc.
+         If not provided, class-name is considered tablename.
+@Id - Indicates pk of entity.
+@Column - Maps property to the column name in db
+@GeneratedValue - Generated value of a property
+                  (strategy = SEQUENCE/IDENTITY/AUTO/UUID/TABLE)
+@RestController -
+@RequestMapping -
+@Config -
+@Bean -
+@Controller -
+@Config -
+@ControllerAdvice -
+@Autowired -
+@(Post/Get/Put)Mapping - 
+
+
+
+
+
+
+
+
+
+
+
+
+

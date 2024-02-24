@@ -1,8 +1,8 @@
-package learnThreads;
+package com.basics.amazon.learnThreads;
 
 public class Thread1 extends Thread{
 
-    Thread1(String threadName) {
+    public Thread1(String threadName) {
         super(threadName); // pass thread name to Thread class
     }
 
