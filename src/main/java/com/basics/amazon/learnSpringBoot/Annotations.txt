@@ -20,7 +20,7 @@
                     Treat exceptions thrown during execution of handlers (controller operations)
 @Autowired - @Autowired is to inject the dependency into a bean
 @(Post/Get/Put)Mapping
-
+@ComponentScan -
 
 
 

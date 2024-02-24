@@ -1,4 +1,4 @@
-package learnThreads;
+package com.basics.amazon.learnThreads;
 
 public class Runnable1 implements Runnable{
     @Override

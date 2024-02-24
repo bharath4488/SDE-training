@@ -15,7 +15,7 @@ public class LearnThreads {
 //        thread1.setDaemon(true); // tells jvm that this object is a daemon thread.
 //        thread1.start();
 
-        Runnable runnable1 = new learnThreads.Runnable1(); // user thread.
+        Runnable runnable1 = new Runnable1(); // user thread.
         // Thread.class has constructor with Runnable parameter
         Thread thread2 = new Thread(runnable1, "UserRunnableThread1");
 //        thread2.start();
