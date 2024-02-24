@@ -1,0 +1,98 @@
+BASICS------------------------------------------------------------------------------------------------------------------
+
+Thread1.class:
+main() is a user thread.
+User thread priority > daemon(system) thread priority.
+Once the user thread stops executing, the daemon thread may be stopped.
+If at least 1 user thread is running, the program is not terminated.
+
+Runnable1.class:
+How is Runnable different from Thread?
+Thread class implements Runnable. Here is a constructor in thread.
+
+    public Thread (Runnable target, String name) {
+            this(null, target, name, 0);
+        }
+    public void run() {
+            if (target != null) {
+                target.run();
+            }
+        }
+
+If you don't pass a Runnable obj to Thread constructor, the target.run() wouldn't execute.
+So with you pass an implementation of Runnable interface to the Thread constructor.
+
+    Thread thread2 = new Thread(runnable1, "UserRunnableThread1");
+
+The other way is to extend the Thread class and override the run method.
+
+Now which one should you use?
+Both are ok, if your class already extends a different class, you can only implement Runnable.
+
+SYNCHRONIZATION---------------------------------------------------------------------------------------------------------
+
+learnThreads share the same memory space and objects.
+This could cause race condition where 2 threads are modifying the same object.
+
+Collections are thread safe.
+
+synchronized block can be applied in the method where race condition can take place.
+synchronized block can be used to avoid the possibility of any race conditions.
+synchronized block takes an object lock, and a thread can only access the code if the lock is released by previous
+thread.
+    func() -> { synchronized(Object lock)  {
+            // first code.....
+    } }
+
+    func() -> { synchronized(Object lock)  {
+            // second code.....
+    } }
+In above code, 2 threads cannot operate asynchronously on 2 methods. because the same lock is shared between 2 async
+functions.
+
+you can also make the entire method synchronized using synchronized keyword.
+public synchronized boolean push(int value) { ... } will make the whole method synchronized.
+public synchronized boolean push(int value) { ... } -> public boolean push(int value) { synchronized(this) { ... } }
+To use synchronized block in static methods, synchronized(<class-name>.class)
+
+VOLATILE----------------------------------------------------------------------------------------------------------------
+Threads have their own cache, if one thread updates its value in its cache, another thread's cache remains the same.
+So to not let an object be stored in cache. Instead, it stores object in the main memory, volatile keyword is used.
+
+PRODUCER-CONSUMER-PROBLEM-----------------------------------------------------------------------------------------------
+
+Thread wait() and notifyAll():
+wait() - method releases the lock and waits.
+notifyAll() - other thread finishes a process and notify the threads in wait() state that it can start execution.
+
+THREAD-TRANSITIONS------------------------------------------------------------------------------------------------------
+
+Use Thread.State Enum to know the current state of thread.
+
+THREAD-JOIN-------------------------------------------------------------------------------------------------------------
+
+Says that this thread should execute first then the main thread.
+
+THREAD-PRIORITY---------------------------------------------------------------------------------------------------------
+
+You can set a priority of the thread (1 - 10, 1 is min and 10 is max).
+However, JVM may not honor the priority because scheduling is platform-dependent
+
+DEADLOCKS---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
