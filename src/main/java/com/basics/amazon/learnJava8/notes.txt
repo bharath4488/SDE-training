@@ -1,0 +1,29 @@
+Features released in java 8:
+
+Base64 encoder decoder - Java 8 api to encode strings, urls and binary data to
+base45 and vice versa.
+
+DateTime api -
+
+Stream api - operates on collections to convert them to stream and apply operations
+using lambda expressions, functional programming.
+
+@FunctionalInterface - allows only one method to be declared in an interface.
+
+default methods - allow defining methods in interfaces. cannot be final or abstract
+
+Lambda expressions -
+
+Optional class - Optional classes are intended to use as a return type of method
+where there could be a possibility of returning a null character. Ex. DB calls.
+
+StringJoiner - null safe, thread safe class to join string with delimiters, prefix
+and suffix.
+
+Predicate - is just a lambda expression to test conditions. filter method in stream
+takes a predicate.
+
+ConsumerInterface - it is just a functional interface with 2 methods. accept and andThen
+    accept - override for business login,
+    andThen - Returns a composed Consumer that performs, in sequence,
+    this operation followed by the after accept operation

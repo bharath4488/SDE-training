@@ -30,6 +30,9 @@ public class Base64EncodeDecode {
         String urlEncodedString2 = URLEncoder.encode(Url, StandardCharsets.UTF_8);
         String urlDecodedString2 = URLDecoder.decode(urlEncodedString2, StandardCharsets.UTF_8);
 
+        System.out.println(urlEncodedString2);
+        System.out.println(urlDecodedString2);
+
         String urlEncodedString = encodeUrl(urlDecodedString2);
         String urlDecodedString = decodeUrl(urlEncodedString);
 
