@@ -1,0 +1,43 @@
+producer - writes events to kafka
+consumer - consumes events from kafka
+kafka cluster has many brokers - each broker has its own disk (local disk)
+producer writes to brokers.
+A broker might be container, VM, servers.
+
+            push                            poll
+producer ---------------> Kafka cluster <-------------------Consumer
+
+Zookeeper manages Kafka cluster
+    - cluster management
+    - Failure detection & recovery
+    - Store Access control lists & secrets
+
+Topics: way to organize messages
+    - Stream of related messages in Kafka
+    - No practical limit on the creation of topics.
+    - Categorizes messages to groups.
+
+    Partitions:
+        - A message in topic is stored in a disk.
+        - That storage is partitioned into smaller chunks called partitions.
+        - Basically breaking topics into pieces and break into pieces and store in disk.
+
+    A message is written at the end of the partition
+
+# Start the ZooKeeper service
+$ .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+# Start the Kafka broker service
+$ .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+# Create a topic
+$ .\bin\windows\kafka-topics.bat --create --topic log-events --bootstrap-server localhost:9092
+
+# Describe/create a topic
+.\bin\windows\kafka-topics.bat --describe --topic log-events --bootstrap-server localhost:9092
+
+# Publish to topic
+.\bin\windows\kafka-console-producer.bat --topic log-events --bootstrap-server localhost:9092
+
+# Consume from a topic
+.\bin\windows\kafka-console-consumer.bat --topic log-events --from-beginning --bootstrap-server localhost:9092
