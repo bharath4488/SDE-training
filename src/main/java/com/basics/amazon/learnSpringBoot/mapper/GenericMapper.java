@@ -10,9 +10,8 @@ public class GenericMapper {
 
     private static ModelMapper modelMapper;
 
-    @Autowired
     public GenericMapper(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
+        GenericMapper.modelMapper = modelMapper;
     }
 
     public static <E, D> D entityToDto(E entity, Class<D> DtoClass) {

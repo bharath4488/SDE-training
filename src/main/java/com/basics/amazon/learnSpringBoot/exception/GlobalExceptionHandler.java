@@ -17,8 +17,7 @@ public class GlobalExceptionHandler {
                 new ApiErrorResponse(e.getMessage(),
                         HttpStatus.BAD_REQUEST,
                         Instant.now());
-        e.printStackTrace();
-        return new ResponseEntity(apiErrorResponse, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(apiErrorResponse, HttpStatus.BAD_REQUEST);
     }
 
 }

@@ -1,10 +1,14 @@
 package com.basics.amazon.learnSpringBoot.exception;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 import java.time.Instant;
 import java.util.Date;
 
+@Setter
+@Getter
 public class ApiErrorResponse {
     private String message;
     private HttpStatus status;
@@ -16,27 +20,4 @@ public class ApiErrorResponse {
         this.timeStamp = timeStamp;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(HttpStatus status) {
-        this.status = status;
-    }
-
-    public Instant getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(Instant timeStamp) {
-        this.timeStamp = timeStamp;
-    }
 }

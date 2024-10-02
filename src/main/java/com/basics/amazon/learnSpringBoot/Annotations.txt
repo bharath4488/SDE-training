@@ -5,6 +5,9 @@
 @Column - Maps property to the column name in db
 @GeneratedValue - Generated value of a property
                   (strategy = SEQUENCE/IDENTITY/AUTO/UUID/TABLE)
+                  SEQUENCE - best for batch insertions (ID is generated before insertion)
+                  IDENTITY - less efficient for large scale systems (ID is generated after the insertion)
+                  MySQL does not support SEQUENCE, strategy is preferred on db choices.
 @RestController - This annotation is used for making restful web services
                   it is defined at the class level to handle the requests made by the client.
 @Controller - Use @Controller when you need to create a web application that renders HTML views,
@@ -20,7 +23,7 @@
                     Treat exceptions thrown during execution of handlers (controller operations)
 @Autowired - @Autowired is to inject the dependency into a bean
 @(Post/Get/Put)Mapping
-@ComponentScan -
+@ComponentScan - This would make Spring look for components in the provided argument package
 
 
 

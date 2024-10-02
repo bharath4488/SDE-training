@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    public User saveAndFlush(User user);
-    public User save(User user);
-    public List<User> findAll();
+//    public User save(User user);
+//    public User saveAndFlush(User user);
+//    public List<User> findAll();
 
 }

@@ -34,7 +34,7 @@ SYNCHRONIZATION-----------------------------------------------------------------
 learnThreads share the same memory space and objects.
 This could cause race condition where 2 threads are modifying the same object.
 
-Collections are thread safe.
+some Collections are thread safe.
 
 synchronized block can be applied in the method where race condition can take place.
 synchronized block can be used to avoid the possibility of any race conditions.

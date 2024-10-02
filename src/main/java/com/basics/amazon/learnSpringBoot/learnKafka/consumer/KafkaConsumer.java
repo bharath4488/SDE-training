@@ -10,7 +10,7 @@ public class KafkaConsumer {
 
     @KafkaListener(topics = "log-events", groupId = "log-group")
     public void consumeMessage(String message) {
-        log.info("Consuming message: " + message);
+        log.info("Consuming message: {}", message);
     }
 
 }
