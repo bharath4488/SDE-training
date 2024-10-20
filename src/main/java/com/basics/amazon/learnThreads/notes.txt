@@ -80,9 +80,73 @@ However, JVM may not honor the priority because scheduling is platform-dependent
 
 DEADLOCKS---------------------------------------------------------------------------------------------------------------
 
+CALLABLE INTERFACE------------------------------------------------------------------------------------------------------
+
+Similar to the Runnable, Callable is a functional interface.
+But unlike Runnable's run() method, Callable's call method returns a value.
+
+You need to submit your Callable implemented object Executors class like below:
+
+    ExecutorService executorService = Executors.newFixedThreadPool(noOfCores);
+    Future<Integer> val = executorService.submit(new YourCallableImplementation(your_param));
+    S.O.P(val.get());
+
+ExecutorService---------------------------------------------------------------------------------------------------------
+
+Executors.newFixedThreadPool(noOfThreads) - creates a pool of reusable threads.
+Since Java threads correspond to System threads, The optimal noOfThreads that can be created is the
+    cores available in the machine. If the tasks are I/O heavy and often go to wait state, it's best to use a larger pool
+    size, that way if some threads are waiting, other threads could pick up other tasks and execute.
+
+executorService.submit(your_callable_implementation) takes in an implementation of callable object and executes it with
+    the available threads from the ThreadPool you just created.
+
+You can also submit a runnable implementation instead of callable implementation.
 
 
+Virtual Threads in spring boot -----------------------------------------------------------------------------------------
 
+Virtual threads are threads that run on top of traditional user defined threads in java.
+So each thread can handle many virtual threads, provided there is necessary resources.
+
+You can enable virtual threads in spring boot 3.2 or more from application.properties.
+
+Example scenario:
+    Lets change tomcat http max threads size to 8(to match 8 cores of my cpu)
+    Make a service sleep for 2 seconds before sending a response.
+    From other service, call the blocking thread.
+
+    Use "hey" tool to benchmark. The below command sends 32 requests concurrently.
+        $> hey -n 32 -c 32 http://your-api-url.com/endpoint
+    It should execute around 8-8.5 seconds
+        reason - only 8 requests are handled concurrently
+        each thread sleeps for 2 sec
+            so 8 requests take 2 seconds -> 32 seconds take 8 seconds.
+
+    If you enable virtual threads, the same command will be executed in 2-2.5 seconds.
+
+    If you want to run virtual threads for particular methods use below -
+
+        // Using thread class
+        public void myMethod() {
+            Thread.ofVirtual().start(() -> {
+                // Your code here that should run on a virtual thread
+            });
+        }
+
+        // Executor thread provides method to create virtualThreads
+        ExecutorService virtualThreadExecutor = Executors.newVirtualThreadPerTaskExecutor();
+        public void myMethod() {
+            virtualThreadExecutor.submit(() -> {
+                // Your HTTP call or I/O operation
+            });
+        }
+
+        // using Spring's asynchronous capabilities, you can annotate specific methods
+        @Async("virtualThreadExecutor")
+        public void myAsyncMethod() {
+            // Your code here
+        }
 
 
 

@@ -1,3 +1,8 @@
+Spring Boot Version     Spring Framework Version    Minimum JDK     Version	Notes
+2.7.x                   5.3.x                       Java 8          Long-term support till 2024.
+3.0.x                   6.0.x                       Java 17         Drops support for Java 8.
+3.1.x                   6.0.x                       Java 17         Latest release with new features.
+
 @Entity - Indicates this class is an entity. An entity represents Table in RDB.
 @Table - Specifies the details of table, indices, etc.
          If not provided, class-name is considered table-name.
